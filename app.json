@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/checkout/checkout",
+    "pages/user/user"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "连理枝寄卖服务",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#d4237a",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text": "我的寄卖",
+        "iconPath": "images/box.png",
+        "selectedIconPath" : "images/box-on.png"
+      },
+      {
+        "pagePath": "pages/checkout/checkout",
+        "text": "申请结账",
+        "iconPath": "images/checkout.png",
+        "selectedIconPath": "images/checkout-on.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-on.png"
+      }
+    ]
+  }
+
+}
