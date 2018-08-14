@@ -5,14 +5,15 @@
     "pages/user/user",
     "pages/auth/auth",
     "pages/admin/login",
-    "pages/admin/list/box"
-    
+    "pages/admin/list/box",
+    "pages/admin/box/new"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "连理枝寄卖服务",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#d4237a",

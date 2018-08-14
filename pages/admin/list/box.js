@@ -1,5 +1,4 @@
-var boxData = [
-  {
+var boxData = [{
     "title": "克洛伊",
     "price": "2300",
     "img": "/images/chloe.jpg",
@@ -23,8 +22,7 @@ var boxData = [
 ]
 
 
-var checkoutBox = [
-  {
+var checkoutBox = [{
     "title": "香奈儿",
     "price": "6000",
     "img": "/images/lv.jpg",
@@ -41,15 +39,13 @@ var checkoutBox = [
 ]
 
 
-var expireBox = [
-  {
-    "title": "克洛伊",
-    "price": "2300",
-    "img": "/images/chloe.jpg",
-    "desc": "米白色女士手提双肩包",
-    "state": "过期"
-  }
-]
+var expireBox = [{
+  "title": "克洛伊",
+  "price": "2300",
+  "img": "/images/chloe.jpg",
+  "desc": "米白色女士手提双肩包",
+  "state": "过期"
+}]
 
 const sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
@@ -63,11 +59,11 @@ Page({
     checkouts: checkoutBox,
     expires: expireBox,
   },
-  onLoad: function () {
+  onLoad: function() {
     var self = this;
 
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         self.setData({
           sliderLeft: (res.windowWidth / self.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / self.data.tabs.length * self.data.activeIndex
@@ -75,7 +71,19 @@ Page({
       }
     });
   },
-  tabClick: function (e) {
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    console.log("down")
+
+    wx.navigateTo({
+      url: "/pages/admin/box/new"
+    })
+
+  },
+
+  tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
