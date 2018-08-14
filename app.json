@@ -4,7 +4,9 @@
     "pages/checkout/checkout",
     "pages/user/user",
     "pages/auth/auth",
-    "pages/admin/login"
+    "pages/admin/login",
+    "pages/admin/list/box"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
