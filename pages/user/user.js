@@ -1,18 +1,24 @@
 Page({
 
   data: {
-    checkout: ['微信', '支付宝', '银行转账']
+    checkout: ['微信', '支付宝', '银行转账'],
+    userInfo: wx.getStorageSync('userInfo'),
   },
+  onLoad: function(options) {
+    if (!wx.getStorageSync('userInfo')) {
+      wx.navigateTo({
+        url: "/pages/auth/auth"
+      })
+    }
 
-  bindPickerChange: function (e) {
-    console.log('picker 数值是', e.detail.value)
-
+  },
+  bindPickerChange: function(e) {
     this.setData({
       inx: e.detail.value
     })
   },
 
-  enterAdmin: function () {
+  enterAdmin: function() {
     wx.navigateTo({
       url: '/pages/admin/login'
 
@@ -21,6 +27,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '后台'
     })
-    
+
   }
 })

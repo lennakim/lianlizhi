@@ -1,8 +1,13 @@
-<view class='' >
-  <image src='/images/bg.png' bindlongtap='enterAdmin'/>
+<view class=''>
+  <image src='{{userInfo.avatarUrl}}' bindlongtap='enterAdmin' />
 </view>
 
 <view class='' id=''>
+
+  <view>
+    <text>hi, {{userInfo.nickName}} 请完善您的信息</text>
+  </view>
+
   <view>
     <label>用户名</label>
     <input type='input'></input>
