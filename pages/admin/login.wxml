@@ -1,28 +1,36 @@
-<view>
-  <image src='/images/lock.png' />
+<view class='page'>
 
-  <view>
-    <label>连理枝小程序后台</label>
+  <view class="admin_page">
+    <image class="img" src="/images/bg.png" mode="aspectFit" />
+
+    <view class="admin-title h2">连理枝后台</view>
+    <view class="admin-title h3">买包包 卖包包</view>
   </view>
 
-  <view>
-    <label>买包包 卖包包</label>
-  </view>
+  <view class="weui-cells weui-cells_after-title">
 
-
-  <view>
-    <view>
-      <label>用户名</label>
-      <input type='input'></input>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">用户名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="用户名" />
+      </view>
     </view>
 
-    <view>
-      <label>密码</label>
-      <input type='password'></input>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="密码" type="password" />
+      </view>
     </view>
 
-    <button type="primary">更新</button>
-
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="">登录</button>
+    </view>
   </view>
 
 </view>

@@ -1,3 +1,26 @@
-input {
-  border: 1rpx solid red;
+.admin_page {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.admin_page .h1 {
+  font-size: 50rpx;
+}
+
+.admin_page .h2 {
+  font-size: 30rpx;
+}
+
+.admin_page .h3 {
+  font-size: 20rpx;
+}
+
+.admin-title {
+  text-align: center;
+}
+
+.admin_page .img {
+  width: 150rpx;
+  height: 150rpx;
+  overflow: hidden;
 }

@@ -5,95 +5,96 @@
 
     <image src='{{userInfo.avatarUrl}}' bindlongtap='enterAdmin' />
   </view>
-</view>
 
-<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cells weui-cells_after-title">
 
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">用户名</view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">用户名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="用户名" />
+      </view>
     </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="用户名" />
+
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入手机号" />
+      </view>
+      <view class="weui-cell__ft">
+        <view class="weui-vcode-btn">获取验证码</view>
+      </view>
+    </view>
+
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">发货地址</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="发货地址" />
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">结账方式</view>
+      </view>
+
+      <view class="weui-cell__bd">
+        <picker bindchange="bindPickerChange" value="{{inx}}" range="{{checkout}}">
+          <view class="weui-input"> {{checkout[inx]}}</view>
+        </picker>
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">微信</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="微信" />
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">支付宝</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="支付宝" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">银行卡号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="银行卡号" />
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">开户行</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="开户行" />
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="">确定</button>
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input weui-cell_vcode">
-    <view class="weui-cell__hd">
-      <view class="weui-label">手机号</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="请输入手机号" />
-    </view>
-    <view class="weui-cell__ft">
-      <view class="weui-vcode-btn">获取验证码</view>
-    </view>
-  </view>
-
-
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">发货地址</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="发货地址" />
-    </view>
-  </view>
-
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">结账方式</view>
-    </view>
-
-    <view class="weui-cell__bd">
-      <picker bindchange="bindPickerChange" value="{{inx}}" range="{{checkout}}">
-        <view class="weui-input"> {{checkout[inx]}}</view>
-      </picker>
-    </view>
-  </view>
-
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">微信</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="微信" />
-    </view>
-  </view>
-
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">支付宝</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="支付宝" />
-    </view>
-  </view>
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">银行卡号</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="银行卡号" />
-    </view>
-  </view>
-
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">开户行</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="开户行" />
-    </view>
-  </view>
-
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="">确定</button>
-  </view>
 </view>
