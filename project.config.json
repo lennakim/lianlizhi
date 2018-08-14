@@ -34,14 +34,7 @@
 		},
 		"miniprogram": {
 			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "user",
-					"pathName": "pages/index/index",
-					"query": ""
-				}
-			]
+			"list": []
 		}
 	}
 }
