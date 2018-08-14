@@ -1,3 +1,5 @@
+<import src="/template/list_tmpl.wxml" />
+
 <view class="page">
 
   <view class="page__bd">
@@ -11,9 +13,34 @@
         <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">寄卖列表</view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">结账列表</view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">到期列表</view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          寄卖列表
+          <!--  -->
+          <view class='box-list' wx:for="{{boxs}}" wx:key="idx" wx:for-item="box">
+            <template is="boxlist" data="{{...box}}"></template>
+          </view>
+          <!--  -->
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          结账列表
+          <!--  -->
+          <view class='box-list' wx:for="{{checkouts}}" wx:key="idx" wx:for-item="box">
+            <template is="boxlist" data="{{...box}}"></template>
+          </view>
+          <!--  -->
+        </view>
+
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          到期列表
+          <!--  -->
+          <view class='box-list' wx:for="{{expires}}" wx:key="idx" wx:for-item="box">
+            <template is="boxlist" data="{{...box}}"></template>
+          </view>
+          <!--  -->
+        </view>
+
       </view>
     </view>
   </view>

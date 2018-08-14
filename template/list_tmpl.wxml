@@ -1,0 +1,13 @@
+<template name="boxlist">
+  <view class='box-list'>
+    <view class='box-item' bindtap=''>
+      <image mode='' class="img" src="{{img}}" />
+      <view class='box-body'>
+        <label class='price'>{{price}}</label>
+        <label class='box-title'>{{title}}</label>
+        <text class='desc'>{{desc}}</text>
+        <text class='state'>{{state}}</text>
+      </view>
+    </view>
+  </view>
+</template>
