@@ -1,0 +1,28 @@
+<view>
+  <image src='/images/lock.png' />
+
+  <view>
+    <label>连理枝小程序后台</label>
+  </view>
+
+  <view>
+    <label>买包包 卖包包</label>
+  </view>
+
+
+  <view>
+    <view>
+      <label>用户名</label>
+      <input type='input'></input>
+    </view>
+
+    <view>
+      <label>密码</label>
+      <input type='password'></input>
+    </view>
+
+    <button type="primary">更新</button>
+
+  </view>
+
+</view>
