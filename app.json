@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/checkout/checkout",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/admin/login"
 
   ],
   "window":{

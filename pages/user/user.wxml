@@ -1,0 +1,60 @@
+<view class='' >
+  <image src='/images/bg.png' bindlongtap='enterAdmin'/>
+</view>
+
+<view class='' id=''>
+  <view>
+    <label>用户名</label>
+    <input type='input'></input>
+  </view>
+
+  <view>
+    <label>手机号</label>
+    <input type='input'></input>
+  </view>
+
+
+  <view>
+    <label>短信验证码</label>
+    <input type='input'></input>
+    <button>发送验证码</button>
+  </view>
+
+  <view>
+    <label>发货地址</label>
+    <input type='input'></input>
+  </view>
+
+  <view>
+    <label>结账方式</label>
+    <picker bindchange="bindPickerChange" value="{{inx}}" range="{{checkout}}">
+      <view class="picker">
+        当前选择：{{checkout[inx]}}
+      </view>
+    </picker>
+  </view>
+
+
+  <view>
+    <label>微信</label>
+    <input type='input'></input>
+  </view>
+
+  <view>
+    <label>支付宝</label>
+    <input type='input'></input>
+  </view>
+
+  <view>
+    <label>银行卡号</label>
+    <input type='input'></input>
+  </view>
+
+  <view>
+    <label>开户行</label>
+    <input type='input'></input>
+  </view>
+
+
+  <button type="primary">更新</button>
+</view>
