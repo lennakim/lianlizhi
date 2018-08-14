@@ -1,0 +1,4 @@
+<view>
+  <button size="default" type="primary" open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">授权</button>
+
+</view>
