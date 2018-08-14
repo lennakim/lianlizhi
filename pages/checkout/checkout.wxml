@@ -1,0 +1,28 @@
+<view>
+  申请结账
+</view>
+
+<view class='container'>
+  <view class='box-list' wx:for="{{boxs}}" wx:key="idx" wx:for-item="box">
+    <view class='box-item' bindtap='' data-boxid="{{idx}}">
+    
+      <image mode='' class="img" src="{{box.img}}" />
+      <view class='box-body'>
+        <label class='price'>{{box.price}}</label>
+        <label class='box-title'>{{box.title}}</label>
+        <text class='desc'>{{box.desc}}</text>
+        <text class='state'>{{box.state}}</text>
+      </view>
+
+      <view class='box-footer'>
+        <checkbox></checkbox>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<view>
+  <button size="default" type="primary" bindgetuserinfo="checkoutBox">结账</button>
+</view>
