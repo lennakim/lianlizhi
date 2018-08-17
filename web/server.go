@@ -18,7 +18,10 @@ func main() {
 	}
 
 	runmode := viper.GetString("runmode")
-	fmt.Printf("%s", runmode)
+	fmt.Printf("%s\n", runmode)
+
+	db := InitDB()
+	defer db.Close()
 
 	http.ListenAndServe("0.0.0.0:2930", r)
 }
