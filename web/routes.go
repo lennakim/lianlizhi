@@ -19,6 +19,12 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	})
 
 	g.GET("/", Index)
+	g.GET("/users/:id", User)
+
+	admin := g.Group("/admin")
+	{
+		admin.GET("", nil)
+	}
 
 	return g
 }

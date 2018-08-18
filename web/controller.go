@@ -19,3 +19,21 @@ func Index(c *gin.Context) {
 		Data: "index",
 	})
 }
+
+func Goods(c *gin.Context) { // 用户商品
+	c.JSON(http.StatusOK, Response{
+		Code: 0,
+		Msg:  "ok",
+		Data: "goods",
+	})
+}
+
+func User(c *gin.Context) { // 用户的信息
+	id := c.Param("id")
+
+	c.JSON(http.StatusOK, Response{
+		Code: 0,
+		Msg:  "ok",
+		Data: id,
+	})
+}
