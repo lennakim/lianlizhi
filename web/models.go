@@ -1,24 +1,24 @@
 package main
 
 import (
+	"database/sql"
 	"time"
 )
 
 type User struct {
-	ID           uint64
+	ID           int64
 	Name         string
-	Phone        string
-	Addr         string
-	Avatar       string
-	CheckoutType string
-	Wechat       string
-	Alipay       string
-	BankId       string
-	BankAddr     string
-	Desc         string
-
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	Phone        sql.NullString
+	Addr         sql.NullString
+	Avatar       sql.NullString
+	CheckoutType sql.NullString
+	Wechat       sql.NullString
+	Alipay       sql.NullString
+	BankNum      sql.NullString
+	BankAddr     sql.NullString
+	Intr         sql.NullString
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 func (User) TableName() string {

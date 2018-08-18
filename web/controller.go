@@ -57,10 +57,22 @@ func UserCreate(c *gin.Context) { // 用户的信息
 func UserShow(c *gin.Context) { // 用户的信息
 	id := c.Param("id")
 
+	db := InitDB()
+	db = db.Unsafe()
+	defer db.Close()
+
+	users := []User{}
+	err := db.Select(&users, "Select * from users where id = $1 limit 1", id)
+
+	if err != nil {
+		panic(err)
+		return
+	}
+
 	c.JSON(http.StatusOK, Response{
 		Code: 0,
 		Msg:  "ok",
-		Data: id,
+		Data: users,
 	})
 }
 

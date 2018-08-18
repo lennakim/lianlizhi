@@ -31,7 +31,7 @@ CREATE TABLE "goods" (
 	"sold_at" TIMESTAMP(0),
 	"down_item_at" TIMESTAMP(0),
 	"state" TEXT,
-	"desc" TEXT,
+	"intr" TEXT,
 	"created_at" TIMESTAMP(0),
 	"updated_at" TIMESTAMP(0)
 	);
