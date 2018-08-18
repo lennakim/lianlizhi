@@ -22,8 +22,6 @@ func openDB(host string, port int, user string, password string, dbname string) 
 		"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
 
-	fmt.Printf(config, "\n")
-
 	db, err := sqlx.Connect("postgres", config)
 
 	if err != nil {
