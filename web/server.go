@@ -20,9 +20,6 @@ func main() {
 	g := gin.New()
 	middlewares := []gin.HandlerFunc{}
 
-	db := InitDB()
-	defer db.Close()
-
 	Load(
 		g,
 		middlewares...,

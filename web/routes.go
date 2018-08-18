@@ -19,7 +19,14 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	})
 
 	g.GET("/", Index)
-	g.GET("/users/:id", User)
+
+	users := g.Group("/users")
+	{
+		users.POST("", UserCreate)           // create
+		users.GET("/:id", UserShow)          // show
+		users.GET("/:id/update", UserUpdate) // update
+
+	}
 
 	admin := g.Group("/admin")
 	{

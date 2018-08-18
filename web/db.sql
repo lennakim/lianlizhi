@@ -7,13 +7,13 @@ CREATE TABLE "users" (
 	"name" TEXT,
 	"phone" TEXT,
 	"addr" TEXT,
-	"Avatar" TEXT,
+	"avatar" TEXT,
 	"checkout_type" TEXT,
 	"wechat" TEXT,
-	"Alipay" TEXT,
-	"bank_id" TEXT,
+	"alipay" TEXT,
+	"bank_num" TEXT,
 	"bank_addr" TEXT,
-	"desc" TEXT,
+	"intr" TEXT,
 	"created_at" TIMESTAMP(0),
 	"updated_at" TIMESTAMP(0)
 	);
