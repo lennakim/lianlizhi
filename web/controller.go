@@ -28,6 +28,30 @@ func Goods(c *gin.Context) { // 用户商品
 	})
 }
 
+func GoodCreate(c *gin.Context) { // 用户商品
+	// 权限验证
+	// 图片上传
+	// json 验证
+	// 设计state
+	brand := c.PostForm("brand")
+	img := c.PostForm("img")
+	directPrice := c.PostForm("direct_price")
+	state := c.PostForm("state")
+	intr := c.PostForm("intr")
+
+	db := InitDB()
+	defer db.Close()
+
+	res := db.MustExec("INSERT INTO goods (brand, img, direct_price, state, intr, created_at, updated_at ) VALUES ($1, $2, $3, $4, $5, now(), now() )",
+		brand, img, directPrice, state, intr)
+
+	c.JSON(http.StatusOK, Response{
+		Code: 0,
+		Msg:  "ok",
+		Data: res,
+	})
+}
+
 func UserCreate(c *gin.Context) { // 用户的信息
 	name := c.PostForm("name")
 	phone := c.PostForm("phone")

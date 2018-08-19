@@ -24,11 +24,12 @@ CREATE TABLE "goods" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT,
 	"brand" TEXT,
+	"img" TEXT,
 	"size" TEXT,
 	"direct_price" Float,
 	"up_item_at" TIMESTAMP(0),
 	"sold_price" Float,
-	"sold_at" TIMESTAMP(0),
+	"sold_at" TIMESTAMP(0), -- 卖出价格
 	"down_item_at" TIMESTAMP(0),
 	"state" TEXT,
 	"intr" TEXT,

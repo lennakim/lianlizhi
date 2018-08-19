@@ -28,6 +28,11 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 
 	}
 
+	goods := g.Group("/goods")
+	{
+		goods.POST("", GoodCreate)
+	}
+
 	admin := g.Group("/admin")
 	{
 		admin.GET("", nil)
