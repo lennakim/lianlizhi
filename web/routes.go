@@ -36,7 +36,7 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	sms := g.Group("/sms")
 	{
 		sms.POST("", SmsSend)
-		sms.POST("/auth", SmsAuth)
+		sms.POST("/verify", SmsVerify)
 
 	}
 

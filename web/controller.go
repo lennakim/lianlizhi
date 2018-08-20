@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -129,14 +130,57 @@ func SmsSend(c *gin.Context) {
 		})
 	} else {
 		c.JSON(http.StatusOK, Response{
-			Code: 0,
+			Code: 1001,
 			Msg:  "err",
-			Data: err.Error(),
+			Data: "短信发送失败",
 		})
 	}
 
 }
 
-func SmsAuth(c *gin.Context) {
+func SmsVerify(c *gin.Context) {
+	phone := c.PostForm("phone")
+	code := c.PostForm("code")
 
+	db := InitDB()
+	// db = db.Unsafe()
+	defer db.Close()
+
+	sms := []SmsCode{}
+	err := db.Select(&sms, "select * from sms_codes where phone = $1 order by created_at desc limit 1", phone)
+
+	if err != nil {
+		panic(err)
+	}
+
+	dbcode := sms[0].Code
+	dbtime := sms[0].CreatedAt // CreatedAt的时区
+
+	if dbtime.Add(10 * time.Minute).Before(time.Now()) {
+		// (dbtime + 10 min) < time.now 验证码过期
+		c.JSON(http.StatusOK, Response{
+			Code: 1002,
+			Msg:  "err",
+			Data: "验证码过期",
+		})
+		return
+	} else {
+
+		if dbcode != code {
+			c.JSON(http.StatusOK, Response{
+				Code: 1003,
+				Msg:  "err",
+				Data: "验证码不匹配",
+			})
+		} else {
+			//
+			db.MustExec("Update users Set verified = true Where phone = ?", phone)
+
+			c.JSON(http.StatusOK, Response{
+				Code: 0,
+				Msg:  "ok",
+				Data: "",
+			})
+		}
+	}
 }
