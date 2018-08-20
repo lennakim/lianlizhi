@@ -19,7 +19,7 @@ func InitDB() *sqlx.DB {
 
 func openDB(host string, port int, user string, password string, dbname string) *sqlx.DB {
 	config := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
+		"password=%s dbname=%s sslmode=disable TimeZone=Asia/Shanghai",
 		host, port, user, password, dbname)
 
 	db, err := sqlx.Connect("postgres", config)

@@ -67,3 +67,10 @@ func SendCodeSms(mobile string) (string, error) {
 		return "", err
 	}
 }
+
+func ChinaZone() *time.Location {
+	loc, _ := time.LoadLocation("Asia/Shanghai")
+	return loc
+
+	// time.Now().In(loc)
+}

@@ -6,6 +6,7 @@ CREATE TABLE "users" (
 	"id" SERIAL PRIMARY KEY,
 	"name" TEXT,
 	"phone" TEXT,
+	"verified" Boolean DEFAULT false,
 	"addr" TEXT,
 	"avatar" TEXT,
 	"checkout_type" TEXT,
@@ -14,8 +15,8 @@ CREATE TABLE "users" (
 	"bank_num" TEXT,
 	"bank_addr" TEXT,
 	"intr" TEXT,
-	"created_at" TIMESTAMP(0),
-	"updated_at" TIMESTAMP(0)
+	"created_at" TIMESTAMPTZ(0), -- 最关键 TIMESTAMP with timezone
+	"updated_at" TIMESTAMPTZ(0)
 	);
 
 -- CREATE INDEX blocks_hash_inx ON blocks ("hash");
@@ -33,14 +34,14 @@ CREATE TABLE "goods" (
 	"down_item_at" TIMESTAMP(0),
 	"state" TEXT,
 	"intr" TEXT,
-	"created_at" TIMESTAMP(0),
-	"updated_at" TIMESTAMP(0)
+	"created_at" TIMESTAMPTZ(0),
+	"updated_at" TIMESTAMPTZ(0)
 	);
 
 CREATE TABLE "sms_codes" (
 	"id" SERIAL PRIMARY KEY,
 	"phone" TEXT NOT NULL,
 	"code" TEXT NOT NULL,
-	"created_at" TIMESTAMP(0),
-	"updated_at" TIMESTAMP(0)
+	"created_at" TIMESTAMPTZ(0),
+	"updated_at" TIMESTAMPTZ(0)
 )
