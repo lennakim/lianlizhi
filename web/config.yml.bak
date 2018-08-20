@@ -5,8 +5,12 @@ db:
   port: 5432
   user: "postgres"
   password: "postgres"
-  dbname: "lianlizhi"
+  dbname: "postgres"
 
 web:
   port: ":2930"
   url: "0.0.0.0:2930"
+
+sms:
+  template_id: 2000
+  auth: "auth"

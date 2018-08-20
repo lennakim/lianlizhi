@@ -44,3 +44,15 @@ type Good struct {
 func (Good) TableName() string {
 	return "goods"
 }
+
+type SmsCode struct {
+	Id        uint64
+	Phone     string
+	code      string
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+func (SmsCode) TableName() string {
+	return "sms_codess"
+}

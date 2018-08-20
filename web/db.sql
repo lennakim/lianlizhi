@@ -37,4 +37,10 @@ CREATE TABLE "goods" (
 	"updated_at" TIMESTAMP(0)
 	);
 
-
+CREATE TABLE "sms_codes" (
+	"id" SERIAL PRIMARY KEY,
+	"phone" TEXT NOT NULL,
+	"code" TEXT NOT NULL,
+	"created_at" TIMESTAMP(0),
+	"updated_at" TIMESTAMP(0)
+)

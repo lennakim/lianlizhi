@@ -109,3 +109,34 @@ func UserUpdate(c *gin.Context) { // 用户的信息
 		Data: "UserUpdate" + id,
 	})
 }
+
+func SmsSend(c *gin.Context) {
+	phone := c.PostForm("phone")
+
+	code, err := SendCodeSms(phone)
+
+	if err == nil {
+		db := InitDB()
+		defer db.Close()
+
+		res := db.MustExec("INSERT INTO sms_codes (phone, code, created_at, updated_at ) VALUES ($1, $2, now(), now() )",
+			phone, code)
+
+		c.JSON(http.StatusOK, Response{
+			Code: 0,
+			Msg:  "ok",
+			Data: res,
+		})
+	} else {
+		c.JSON(http.StatusOK, Response{
+			Code: 0,
+			Msg:  "err",
+			Data: err.Error(),
+		})
+	}
+
+}
+
+func SmsAuth(c *gin.Context) {
+
+}

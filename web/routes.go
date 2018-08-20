@@ -33,6 +33,13 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		goods.POST("", GoodCreate)
 	}
 
+	sms := g.Group("/sms")
+	{
+		sms.POST("", SmsSend)
+		sms.POST("/auth", SmsAuth)
+
+	}
+
 	admin := g.Group("/admin")
 	{
 		admin.GET("", nil)
