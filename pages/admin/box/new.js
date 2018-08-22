@@ -1,11 +1,10 @@
 const qiniuUploader = require("../../../utils/qiniuUploader");
 
-function initQiniu() {
+function initQiniu(uptoken) {
+
   var options = {
     region: 'SCN',
-    uptokenFunc: function() {
-      return ""
-    },
+    uptoken: uptoken,
     domain: 'http://pdum902ru.bkt.clouddn.com/',
     shouldUseQiniuFileName: false
   };
@@ -31,9 +30,20 @@ Page({
 
   },
   chooseImage: function(e) {
-    initQiniu();
 
-    var that = this;
+    var uptoken = null;
+
+    wx.request({
+      method: "POST",
+      url: "http://47.98.157.166:2930/qiniu/uptoken/",
+      success: function(res) {
+        uptoken = res.data.data
+        initQiniu(uptoken) //
+      }
+    })
+
+
+    var self = this;
     wx.chooseImage({
       count: 1, // 默认9
 
@@ -42,7 +52,7 @@ Page({
         var filePath = res.tempFilePaths[0];
 
         qiniuUploader.upload(filePath, function(res) {
-          that.setData({
+          self.setData({
             'imgObj': res // res.imageURL
           });
         })
