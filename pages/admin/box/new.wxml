@@ -45,11 +45,10 @@
     <view class="weui-uploader__bd">
 
       <!--  -->
-      <block wx:for="{{files}}" wx:key="*this">
-        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-          <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-        </view>
-      </block>
+      <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+        <image class="weui-uploader__img" src="{{imgObj.imageURL}}"  mode="aspectFill" />
+      </view>
+
       <!--  -->
       <view class="weui-uploader__file">
         <view class="weui-uploader__input-box">
