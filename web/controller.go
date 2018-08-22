@@ -184,3 +184,11 @@ func SmsVerify(c *gin.Context) {
 		}
 	}
 }
+
+func GetUpToken(c *gin.Context) {
+	c.JSON(http.StatusOK, Response{
+		Code: 0,
+		Msg:  "ok",
+		Data: UpToken(),
+	})
+}

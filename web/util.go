@@ -2,13 +2,17 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
+	"path"
 	"time"
 
+	"github.com/qiniu/api.v7/auth/qbox"
+	"github.com/qiniu/api.v7/storage"
 	"github.com/spf13/viper"
 	"github.com/tidwall/gjson"
 )
@@ -73,4 +77,48 @@ func ChinaZone() *time.Location {
 	return loc
 
 	// time.Now().In(loc)
+}
+
+func UpToken() string {
+	accessKey := viper.GetString("qiniu.accessKey")
+	secretKey := viper.GetString("qiniu.secretKey")
+	bucket := viper.GetString("qiniu.bucket")
+
+	putPolicy := storage.PutPolicy{
+		Scope:      bucket,
+		ReturnBody: `{"key":"$(key)","hash":"$(etag)","fsize":$(fsize),"bucket":"$(bucket)","name":"$(x:name)"}`,
+	}
+
+	putPolicy.Expires = 3600
+
+	mac := qbox.NewMac(accessKey, secretKey)
+	upToken := putPolicy.UploadToken(mac)
+
+	return upToken
+}
+
+func UploadFile(localFile string) {
+
+	type PutRet struct {
+		Key    string
+		Hash   string
+		Fsize  int
+		Bucket string
+		Name   string
+	}
+
+	_, file := path.Split(localFile)
+
+	upToken := UpToken()
+
+	formUploader := storage.NewFormUploader(nil)
+	ret := PutRet{}
+
+	err := formUploader.PutFile(context.Background(), &ret, upToken, file, localFile, nil)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(ret.Bucket, ret.Key, ret.Fsize, ret.Hash, ret.Name)
 }

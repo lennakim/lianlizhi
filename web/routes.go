@@ -45,6 +45,8 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		admin.GET("", nil)
 	}
 
+	g.POST("qiniu/uptoken", GetUpToken)
+
 	return g
 }
 
